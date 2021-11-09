@@ -1,0 +1,21 @@
+server:
+  port: 9092
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+
+  application:
+    name: order-service
+  zipkin:
+    base-url: http://192.168.1.200:9411
+  sleuth:
+    sampler:
+      probability: 1
+
+
+rocketmq:
+  name-server: 192.168.1.200:9876

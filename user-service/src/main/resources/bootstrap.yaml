@@ -1,0 +1,16 @@
+#spring.cloud.nacos.config
+
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        #服务端配置文件类型
+        file-extension: yaml
+  application:
+    #文件前缀
+    name: user-service
+  profiles:
+    # -dev 环境
+    active: dev
+

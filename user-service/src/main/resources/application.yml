@@ -1,0 +1,43 @@
+server:
+  port: 8081
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+    sentinel:
+      transport:
+        # 开启 sentinel-dashboad
+        dashboard: 192.168.1.200:8080
+
+  application:
+    name: user-service
+  zipkin:
+    base-url: http://192.168.1.200:9411
+    sleuth:
+      sampler:
+        probability: 1
+
+feign:
+  client:
+    config:
+      #被调用微服务的名称
+      order-service:
+        loggerLevel: full
+
+  sentinel:
+    # 开启feign的sentinel的能力
+    enabled: true
+
+logging:
+  level:
+    com.zcf.userservice.feign: debug
+
+
+rocketmq:
+  name-server: 192.168.1.200:9876
+  producer:
+    group: zcf-topic
+
+
